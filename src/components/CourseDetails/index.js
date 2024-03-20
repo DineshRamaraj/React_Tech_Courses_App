@@ -1,19 +1,6 @@
 import Loader from 'react-loader-spinner'
 import {Component} from 'react'
-import {
-  CourseDetailsContainer,
-  ImageContainer,
-  Image,
-  NameAndDescriptionContainer,
-  Name,
-  Description,
-  LoadingContainer,
-  FailureContainer,
-  FailureImage,
-  FailureHeading,
-  FailureDescription,
-  FailureRetryButton,
-} from './styledComponents'
+import './index.css'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -63,22 +50,22 @@ class CourseDetails extends Component {
     const {courseDetails} = this.state
     const {imageUrl, name, description} = courseDetails
     return (
-      <CourseDetailsContainer>
-        <ImageContainer>
-          <Image src={imageUrl} alt={name} />
-        </ImageContainer>
-        <NameAndDescriptionContainer>
-          <Name>{name}</Name>
-          <Description>{description}</Description>
-        </NameAndDescriptionContainer>
-      </CourseDetailsContainer>
+      <div className="course-details-container">
+        <div className="image-container">
+          <img className="image" src={imageUrl} alt={name} />
+        </div>
+        <div className="name-and-description-container">
+          <h1 className="name">{name}</h1>
+          <p className="description">{description}</p>
+        </div>
+      </div>
     )
   }
 
   renderLoading = () => (
-    <LoadingContainer data-testid="loader">
+    <div className="loading-container" data-testid="loader">
       <Loader type="ThreeDots" width={50} height={50} color="#4656a1" />
-    </LoadingContainer>
+    </div>
   )
 
   onRetry = () => {
@@ -86,19 +73,20 @@ class CourseDetails extends Component {
   }
 
   renderFailure = () => (
-    <FailureContainer>
-      <FailureImage
+    <div className="failure-container">
+      <img
+        className="failure-image"
         src="https://assets.ccbp.in/frontend/react-js/tech-era/failure-img.png"
         alt="failure view"
       />
-      <FailureHeading>Oops! Something Went Wrong</FailureHeading>
-      <FailureDescription>
+      <h1 className="failure-heading">Oops! Something Went Wrong</h1>
+      <p className="failure-description">
         We cannot seem to find the page you are looking for.
-      </FailureDescription>
-      <FailureRetryButton type="button" onClick={this.onRetry}>
+      </p>
+      <button className="retry-button" type="button" onClick={this.onRetry}>
         Retry
-      </FailureRetryButton>
-    </FailureContainer>
+      </button>
+    </div>
   )
 
   render() {

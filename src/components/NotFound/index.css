@@ -1,29 +1,27 @@
-import styled from 'styled-components'
-
-export const NotFoundContainer = styled.div`
+.not-found-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 70vh;
   margin-top: 30px;
-`
+}
 
-export const NotFoundImage = styled.img`
+.not-found-image {
   width: 50%;
   max-width: 400px;
-`
+}
 
-export const NotFoundHeading = styled.h1`
+.not-found-heading {
   font-family: 'Roboto';
   font-size: 36px;
   color: #1e293b;
   margin-bottom: 5px;
-`
+}
 
-export const NotFoundDescription = styled.p`
+.not-found-description {
   font-family: 'Roboto';
   font-size: 18px;
   color: #64748b;
   margin: 20px 0;
-`
+}

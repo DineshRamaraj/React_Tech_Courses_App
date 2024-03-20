@@ -1,20 +1,7 @@
 import Loader from 'react-loader-spinner'
+import {Link} from 'react-router-dom'
 import {Component} from 'react'
-import {
-  CourseContainer,
-  CourseHeading,
-  CourseListContainer,
-  LinkItem,
-  CourseItem,
-  CourseItemImage,
-  CourseItemHeading,
-  LoadingContainer,
-  FailureContainer,
-  FailureImage,
-  FailureHeading,
-  FailureDescription,
-  FailureRetryButton,
-} from './styledComponents'
+import './index.css'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -23,7 +10,7 @@ const apiStatusConstants = {
   inProgress: 'IN_PROGRESS',
 }
 
-class Courses extends Component {
+class Home extends Component {
   state = {
     courseList: [],
     apiStatus: apiStatusConstants.initial,
@@ -62,26 +49,30 @@ class Courses extends Component {
   renderSuccess = () => {
     const {courseList} = this.state
     return (
-      <CourseContainer>
-        <CourseHeading>Courses</CourseHeading>
-        <CourseListContainer>
+      <div className="course-container">
+        <h1 className="course-heading">Courses</h1>
+        <ul className="course-list-container">
           {courseList.map(eachItem => (
-            <LinkItem to={`/courses/${eachItem.id}`}>
-              <CourseItem>
-                <CourseItemImage src={eachItem.logoUrl} alt="name" />
-                <CourseItemHeading>{eachItem.name}</CourseItemHeading>
-              </CourseItem>
-            </LinkItem>
+            <li className="course-item" key={eachItem.id}>
+              <Link className="course-link" to={`/courses/${eachItem.id}`}>
+                <img
+                  className="course-item-image"
+                  src={eachItem.logoUrl}
+                  alt={eachItem.name}
+                />
+                <p className="course-item-heading">{eachItem.name}</p>
+              </Link>
+            </li>
           ))}
-        </CourseListContainer>
-      </CourseContainer>
+        </ul>
+      </div>
     )
   }
 
   renderLoading = () => (
-    <LoadingContainer data-testid="loader">
+    <div className="loading-container" data-testid="loader">
       <Loader type="ThreeDots" width={50} height={50} color="#4656a1" />
-    </LoadingContainer>
+    </div>
   )
 
   onRetry = () => {
@@ -89,19 +80,20 @@ class Courses extends Component {
   }
 
   renderFailure = () => (
-    <FailureContainer>
-      <FailureImage
+    <div className="failure-container">
+      <img
+        className="failure-image"
         src="https://assets.ccbp.in/frontend/react-js/tech-era/failure-img.png"
         alt="failure view"
       />
-      <FailureHeading>Oops! Something Went Wrong</FailureHeading>
-      <FailureDescription>
+      <h1 className="failure-heading">Oops! Something Went Wrong</h1>
+      <p className="failure-description">
         We cannot seem to find the page you are looking for.
-      </FailureDescription>
-      <FailureRetryButton type="button" onClick={this.onRetry}>
+      </p>
+      <button className="retry-button" type="button" onClick={this.onRetry}>
         Retry
-      </FailureRetryButton>
-    </FailureContainer>
+      </button>
+    </div>
   )
 
   render() {
@@ -120,4 +112,4 @@ class Courses extends Component {
   }
 }
 
-export default Courses
+export default Home

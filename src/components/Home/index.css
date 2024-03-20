@@ -1,85 +1,83 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import styled from 'styled-components'
-import {Link} from 'react-router-dom'
-
-export const CourseContainer = styled.div`
+.course-container {
   display: flex;
   flex-direction: column;
   padding: 20px 60px;
-`
+}
 
-export const CourseHeading = styled.h1`
+.course-heading {
   font-family: 'Roboto';
   font-size: 28px;
   color: #1e293b;
-`
+}
 
-export const CourseListContainer = styled.ul`
+.course-list-container {
   padding-left: 0px;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-`
+  width: 100%;
+}
 
-export const LinkItem = styled(Link)`
-  text-decoration: none;
-`
-
-export const CourseItem = styled.li`
+.course-item {
+  width: 20%;
+  cursor: pointer;
+  margin-bottom: 30px;
   padding: 10px;
+}
+
+.course-link {
   display: flex;
   align-items: center;
-  width: 20%;
-  margin-bottom: 30px;
-`
+  text-decoration: none;
+}
 
-export const CourseItemImage = styled.img`
+.course-item-image {
   width: 60px;
   height: 60px;
-`
+}
 
-export const CourseItemHeading = styled.p`
+.course-item-heading {
   font-family: 'Roboto';
   font-size: 16px;
   color: #475569;
   margin-left: 20px;
-`
+}
 
-export const LoadingContainer = styled.div`
+.loading-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 70vh;
-`
+}
 
-export const FailureContainer = styled.div`
+.failure-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 70vh;
-`
+}
 
-export const FailureImage = styled.img`
+.failure-image {
   width: 60%;
   max-width: 500px;
-`
+}
 
-export const FailureHeading = styled.h1`
+.failure-heading {
   font-family: 'Roboto';
   font-size: 28px;
   color: #1e293b;
   margin-bottom: 5px;
-`
+}
 
-export const FailureDescription = styled.p`
+.failure-description {
   font-family: 'Roboto';
   font-size: 18px;
   color: #64748b;
   margin: 10px 0;
-`
+}
 
-export const FailureRetryButton = styled.button`
+.retry-button {
   border: none;
   outline: none;
   border-radius: 5px;
@@ -90,4 +88,4 @@ export const FailureRetryButton = styled.button`
   font-family: 'Roboto';
   cursor: pointer;
   margin-top: 10px;
-`
+}
