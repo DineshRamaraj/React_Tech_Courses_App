@@ -1,6 +1,7 @@
 import Loader from 'react-loader-spinner'
 import {Component} from 'react'
 import './index.css'
+import Failure from '../Failure'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -72,22 +73,7 @@ class CourseDetails extends Component {
     this.getDataFromServer()
   }
 
-  renderFailure = () => (
-    <div className="failure-container">
-      <img
-        className="failure-image"
-        src="https://assets.ccbp.in/frontend/react-js/tech-era/failure-img.png"
-        alt="failure view"
-      />
-      <h1 className="failure-heading">Oops! Something Went Wrong</h1>
-      <p className="failure-description">
-        We cannot seem to find the page you are looking for.
-      </p>
-      <button className="retry-button" type="button" onClick={this.onRetry}>
-        Retry
-      </button>
-    </div>
-  )
+  renderFailure = () => <Failure onRetry={this.onRetry} />
 
   render() {
     const {apiStatus} = this.state
